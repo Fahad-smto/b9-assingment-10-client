@@ -1,0 +1,122 @@
+.slide {
+    color: red;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.slide1 {
+    /* background-image: url('../public/pexels-asadphoto-457878.jpg');
+    background: linear-gradient(to right, black, white);
+    height: 100px;  
+    width: 100%; 
+     */
+
+    background: url('../public/pexels-asadphoto-457878.jpg'),
+        linear-gradient(to right, #000000, #434343);
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    width: 900px;
+}
+
+.slide2 {
+    background: url('../public/pexels-veeterzy-38136.jpg'),
+        linear-gradient(to right, #000000, #434343);
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    width: 900px;
+
+}
+
+.slide3 {
+
+    background: url('../public/pexels-davidriano-975771.jpg'),
+        linear-gradient(to right, #000000, #434343);
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    width: 900px;
+
+
+}
+
+.slide4 {
+
+    background: url('../public/pexels-eberhardgross-1064162.jpg'),
+        linear-gradient(to right, #000000, #434343);
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    width: 900px;
+
+}
+
+.slide5 {
+
+    background: url('../public/pexels-eberhardgross-707344.jpg'),
+        linear-gradient(to right, #000000, #434343);
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    width: 900px;
+
+}
+
+.slide6 {
+    background: url('../public/pexels-jahoo-388415.jpg'),
+        linear-gradient(to right, #000000, #434343);
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    width: 900px;
+
+}
+
+.slide7 {
+
+    background: url('../public/pexels-kellie-churchman-371878-1001682.jpg'),
+        linear-gradient(to right, #000000, #434343);
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    width: 900px;
+
+}
+
+
+.slide8 {
+
+    background: url('../public/pexels-kelly-1179532-2519390.jpg'),
+        linear-gradient(to right, #000000, #434343);
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    width: 900px;
+}
+
+.slide9 {
+
+    background: url('../public/pexels-samandgos-709552.jpg'),
+        linear-gradient(to right, #000000, #434343);
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    width: 900px;
+}
+
+.slide10 {
+
+    background: url('../public/pexels-stywo-1054218.jpg'),
+        linear-gradient(to right, #000000, #434343);
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    width: 900px;
+}
