@@ -1,14 +1,26 @@
 import { Link, NavLink } from "react-router-dom";
-
+import { MdOutlineTravelExplore  } from "react-icons/md";
+import { useContext } from "react";
+import { AuthContext } from "../authProvider/AuthProvider";
 
 
 const Navbar = () => {
 
+    const {user,logOut} = useContext(AuthContext);
+
+    const handleSignOut =()=>{
+     logOut()
+     .then()
+     .catch()
+    }
+
     const navLinks = <>
-        <li><NavLink to='/'>Home</NavLink> </li>
-        <li><NavLink to='/contact'>Contact</NavLink> </li>
-        <li><NavLink to='/about'>About</NavLink> </li>
-        <li><NavLink to='/login'>Login</NavLink> </li>
+        <li className="text-white"><NavLink to='/'>Home</NavLink> </li>
+        <li className="text-white"><NavLink to='/all-tourists'>All Tourists Spot</NavLink> </li>
+        <li className="text-white"><NavLink to='/add-tourists'>Add Tourists Spot</NavLink> </li>
+        <li className="text-white"><NavLink to='/my-list'>My list</NavLink> </li>
+        <li className="text-white"><NavLink to='/contact'>Contact</NavLink> </li>
+        <li className="text-white"><NavLink to='/about'>About</NavLink> </li>
     </>
 
 
@@ -38,7 +50,7 @@ const Navbar = () => {
                         }
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">Natural Horizon</a>
+                <a className="btn btn-ghost text-xl text-white">Natural Horizon <MdOutlineTravelExplore ></MdOutlineTravelExplore ></a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -48,7 +60,17 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+
+              {
+                user ?
+                <button onClick={handleSignOut} className="btn">Sign out</button>
+                :
                 <Link to='/logIn' className="btn">logIn now</Link>
+
+              }
+
+
+               
             </div>
         </div>
     );

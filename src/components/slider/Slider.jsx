@@ -7,7 +7,7 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 const Slider = () => {
     return (
-        <div className="mt-5 md:w-full lg:w-[900px] mx-auto">
+        <div className="mt-5 md:w-full lg:w-[900px] mx-auto ">
 
 
             <Swiper className="mySwiper" spaceBetween={30}

@@ -1,7 +1,11 @@
+import Slider from "../slider/Slider";
+
  
 const Home = () => {
     return (
-        <div class="bg-gradient-to-l hover:bg-gradient-to-r">
+        
+        <div >
+            <Slider></Slider>
          hello brother
       </div>
     );
