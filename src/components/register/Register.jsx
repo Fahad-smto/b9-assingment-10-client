@@ -1,33 +1,51 @@
-import { useContext } from "react";
-import { Link} from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../authProvider/AuthProvider";
 
 const Register = () => {
 
-    const {createUser } = useContext(AuthContext);
+    const [registerError, setRegisterError] = useState('');
+    const [registerSuccess, setRegisterSuccess] = useState('');
+
+    const { createUser } = useContext(AuthContext);
 
     const handleRegister = e => {
         e.preventDefault();
         console.log(e.currentTarget);
         const form = new FormData(e.currentTarget);
-       
-        const name =form.get('name');
-        const photo =form.get('photo');
-        const email =form.get('email');
-        const password =form.get('password');
-        console.log(name,email,password,photo)
 
-        createUser(email,password)
-        .then(result =>{
-            console.log(result.user)
-        })
-        .catch(error=>{
-            console.error(error)
-        })
+        const name = form.get('name');
+        const photo = form.get('photo');
+        const email = form.get('email');
+        const password = form.get('password');
+        console.log(name, email, password, photo)
+        setRegisterError('');
+        setRegisterSuccess('');
+
+        if(password.length<6){
+            setRegisterError('Password should have at least 6 caracters')
+            return
+        }
+
+         else if( ! /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/.test(password)){
+            setRegisterError('Password should have at least one upper case,number,lowercase caracters')
+            return
+        }
+
+
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user)
+                setRegisterSuccess('user created successfully');
+            })
+            .catch(error => {
+                console.error(error)
+                setRegisterError(error.message)
+            })
     }
 
     return (
-       
+
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800 mx-auto ">
             <h1 className="text-2xl font-bold text-center">Register</h1>
             <form onSubmit={handleRegister} noValidate="" action="" className="space-y-6">
@@ -52,6 +70,15 @@ const Register = () => {
                 </div>
                 <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 bg-[#008080]">Sign in</button>
             </form>
+
+             {
+                registerError && <p className="text-red-500">{registerError}</p>
+             }
+
+             {
+                registerSuccess && <p className="text-green-500">{registerSuccess}</p>
+             }
+
             <div className="flex items-center pt-4 space-x-1">
                 <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
                 <p className="px-3 text-sm dark:text-gray-600">Login with social accounts</p>
