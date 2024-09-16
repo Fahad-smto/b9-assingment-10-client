@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../authProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
 
@@ -36,7 +37,11 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 console.log(result.user)
-                setRegisterSuccess('user created successfully');
+                Swal.fire({
+                    title: "Done",
+                    text: "User created successfully",
+                    icon: "success"
+                  });
             })
             .catch(error => {
                 console.error(error)
@@ -75,9 +80,9 @@ const Register = () => {
                 registerError && <p className="text-red-500">{registerError}</p>
              }
 
-             {
+             {/* {
                 registerSuccess && <p className="text-green-500">{registerSuccess}</p>
-             }
+             } */}
 
             <div className="flex items-center pt-4 space-x-1">
                 <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>

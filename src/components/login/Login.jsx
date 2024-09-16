@@ -1,9 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../authProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
+
+     const  [loginError,setLoginError] =useState('');
 
     const {signIn}= useContext(AuthContext);
 
@@ -14,12 +17,19 @@ const Login = () => {
         const email = form.get('email')
         const password = form.get('password')
         console.log(email,password);
+        setLoginError('')
         signIn(email,password)
         .then(result =>{
             console.log(result.user)
+            Swal.fire({
+                title: "Good job!",
+                text: "Login successfully ",
+                icon: "success"
+              });
         })
         .catch(error =>{
             console.error(error)
+            setLoginError(error.message);
         })
     }
 
@@ -40,6 +50,11 @@ const Login = () => {
                 </div>
                 <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 bg-[#008080]">Sign in</button>
             </form>
+
+            {
+                loginError && <p className="text-red-500">{loginError}</p>
+             }
+
             <div className="flex items-center pt-4 space-x-1">
                 <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
                 <p className="px-3 text-sm dark:text-gray-600">Login with social accounts</p>
